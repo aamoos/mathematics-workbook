@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <br>
+    <div class="container"> 
+        <select id="selectArithmteic" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected value="+">덧셈</option>
+            <!-- <option value="-">뺄셈</option> -->
+            <option value="*">곱셈</option>
+            <!-- <option value="/">나눗셈</option> -->
+        </select>
+        <br>
+        <h1>점수 : <span id="totalScore">100</span>점</h1>
+        <br>
+        <button style="font-size: 50px;" type="button" id="startBtn" class="btn btn-outline-primary">시작</button>
+        <br>
+        <p>
+            <div id='timerBox' class="timerBox">
+                <div style="font-size: 50px;" id="time" class="time">00:00:00</div>
+            </div>
+        </p>
+        <br>
+        <br>
+        <table class="table table-hover table-fixed" style="width: 1700px;">
+            <thead>
+                <tr id="lineTr">
+                    <th id="arithmetic" style="font-size: 50px;" scope="col">+</th>
+                    <th class="line" scope="col" style="font-size: 50px;">0</th>
+                    <th class="line" scope="col" style="font-size: 50px;">1</th>
+                    <th class="line"scope="col" style="font-size: 50px;">2</th>
+                    <th class="line" scope="col" style="font-size: 50px;">3</th>
+                    <th class="line" scope="col" style="font-size: 50px;">4</th>
+                    <th class="line" scope="col" style="font-size: 50px;">5</th>
+                    <th class="line" scope="col" style="font-size: 50px;">6</th>
+                    <th class="line" scope="col" style="font-size: 50px;">7</th>
+                    <th class="line" scope="col" style="font-size: 50px;">8</th>
+                    <th class="line" scope="col" style="font-size: 50px;">9</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">0</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">1</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">2</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">3</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">4</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">5</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">6</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">7</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">8</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+                <tr>
+                    <th class="heat" scope="row" style="font-size: 50px;">9</th>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="0" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="1" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="2" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="3" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="4" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="5" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="6" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="7" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="8" type="text"></td>
+                    <td><input style="width:170px; height:170px; text-align: center;" disabled data-index="9" type="text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let totalScore = 100;
+
+    let lineNumArr = [];
+    let heatArr = [];
+    let cellArr = [];
+
+    let lineCount = 0;
+    let heatCount = 0;
+    let cellCount = 0;
+    let cellNumOrder = 0;
+    let time = 0;
+    let timer = "";
+
+    $(function(){
+
+        document.body.style.zoom = 40 + "%";
+
+        //행 배열
+        while(true){
+            const randomValue = randomNum(0, 9);
+            
+            //포함하지 않으면 push
+            if(lineNumArr.indexOf(randomValue) == -1){
+                lineNumArr.push(randomValue);
+                lineCount++;
+            }
+
+            if(lineCount == 10){
+                break;
+            }
+        }
+
+        //열 배열
+         while (true) {
+            const randomValue = randomNum(0, 9);
+
+            //포함하지 않으면 push
+            if (heatArr.indexOf(randomValue) == -1) {
+                heatArr.push(randomValue);
+                heatCount++;
+            }
+
+            if (heatCount == 10) {
+                break;
+            }
+        }
+        
+        //cell 배열
+         while (true) {
+            const randomValue = randomNum(0, 99);
+
+            //포함하지 않으면 push
+            if (cellArr.indexOf(randomValue) == -1) {
+                cellArr.push(randomValue);
+                cellCount++;    
+            }
+
+            if (cellCount == 100) {
+                break;
+            }
+        }
+
+        //행값설정
+        $(".line").each(function(index){
+            $(this).text(lineNumArr[index]);
+        });
+
+        //열값설정
+        $(".heat").each(function (index) {
+            $(this).text(heatArr[index]);
+        });
+
+        //select box 변경시 원래상태로 초기화
+         $("#selectArithmteic").change(function () {
+            $("#arithmetic").text($(this).val());
+            
+            totalScore = 100;
+
+            lineCount = 0;
+            heatCount = 0;
+            cellCount = 0;
+            cellNumOrder = 0;
+
+            $("input").val("");
+            $("input").prop("disabled", true);
+             $("input").css("background-color", "");
+            $("#totalScore").text("100");
+            $("#startBtn").prop("disabled", false); 
+            $(this).css("color", "black");
+
+            stopTimer();
+        });
+
+        $("input").keyup(function () {
+            if (window.event.keyCode == 13) {
+
+                if($(this).val().trim() == ""){
+                    alert("정답을 입력해주세요.");
+                    return false;
+                }
+
+                //행 index
+                const lineIndex = $(this).attr("data-index");
+
+                //행
+                const lineNum = Number($("#lineTr").find("th:gt(0)").eq(lineIndex).text());
+
+                //열
+                const heatNum = Number($(this).parents("tr").find("th").text());
+
+                const arithmetic = $("#arithmetic").text();
+
+                let result = "";
+
+                //덧셈일때
+                if ("+" == arithmetic) {
+                    result = heatNum + lineNum;
+                } else if ("-" == arithmetic) {
+                    result = heatNum - lineNum;
+                } else if ("*" == arithmetic) {
+                    result = heatNum * lineNum;
+                } else if ("/" == arithmetic) {
+                    result = Math.round(heatNum / lineNum);
+                }
+
+                const answer = Number($(this).val().trim());
+                if (answer == result) {
+                    $(this).css("color", "blue");
+                    $(this).css("font-size", "50px");
+                } else {
+                    //오답
+                    totalScore--;
+                    $(this).css("color", "red");
+                    $(this).css("font-size", "50px");
+                }
+
+                $(this).css("background-color", "yellow");
+
+                $(this).prop("disabled", true);
+
+                $("#totalScore").text(totalScore);
+                
+                const cellNum = cellArr[cellNumOrder];
+                $("input").eq(cellNum).prop("disabled", false);
+                $("input").eq(cellNum).focus();
+                $("input").eq(cellNum).css("color", "black");
+
+                $("#startBtn").prop("disabled", true);
+                cellNumOrder++;
+
+                console.log(cellNumOrder);
+                if(cellNumOrder == 101){
+                    alert("문제를 다푸셨습니다. 수고하셨습니다.");
+                    pauseTimer();
+                }
+
+                lineNumArr = [];
+                heatArr = [];
+              
+                lineCount = 0;
+                heatCount = 0;
+
+                //행 배열
+                while (true) {
+                    const randomValue = randomNum(0, 9);
+
+                    //포함하지 않으면 push
+                    if (lineNumArr.indexOf(randomValue) == -1) {
+                        lineNumArr.push(randomValue);
+                        lineCount++;
+                    }
+
+                    if (lineCount == 10) {
+                        break;
+                    }
+                }
+
+                //열 배열
+                while (true) {
+                    const randomValue = randomNum(0, 9);
+
+                    //포함하지 않으면 push
+                    if (heatArr.indexOf(randomValue) == -1) {
+                        heatArr.push(randomValue);
+                        heatCount++;
+                    }
+
+                    if (heatCount == 10) {
+                        break;
+                    }
+                }
+
+                 //행값설정
+                $(".line").each(function (index) {
+                    $(this).text(lineNumArr[index]);
+                });
+
+                //열값설정
+                $(".heat").each(function (index) {
+                    $(this).text(heatArr[index]);
+                });
+
+            }
+        });
+
+        //시작버튼 클릭
+        $("#startBtn").click(function () {
+           const cellNum = cellArr[cellNumOrder];
+            
+            console.log($("input"));
+            $("input").eq(cellNum).prop("disabled", false);
+            $("input").eq(cellNum).focus();
+            $("#startBtn").prop("disabled", true);
+            cellNumOrder++;
+
+           startTimer();
+        });
+    })
+
+    //숫자 랜덤
+    function randomNum(min, max) {
+        let randNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        return randNum;
+    }
+
+    function startTimer(){
+        time = 0;
+        let starFlag = true;
+
+        if (starFlag) {
+            starFlag = false;
+
+            if (time == 0) {
+                 document.getElementById("time").innerHTML = "00:00:00";
+            }
+
+            timer = setInterval(function () {
+                time++;
+
+                min = Math.floor(time / 60);
+                hour = Math.floor(min / 60);
+                sec = time % 60;
+                min = min % 60;
+
+                let th = hour;
+                let tm = min;
+                let ts = sec;
+                if (th < 10) {
+                    th = "0" + hour;
+                }
+                if (tm < 10) {
+                    tm = "0" + min;
+                }
+                if (ts < 10) {
+                    ts = "0" + sec;
+                }
+
+                document.getElementById("time").innerHTML = th + ":" + tm + ":" + ts;
+            }, 1000);
+        }
+    }
+
+    function stopTimer(){
+        if (time != 0) {
+            clearInterval(timer);
+            starFlag = true;
+            time = 0;
+            document.getElementById("time").innerHTML = "00:00:00";
+        }
+    }
+
+    function pauseTimer(){
+        if (time != 0) {
+            clearInterval(timer);
+            starFlag = true;
+        }
+    }
+    
+
+</script>
